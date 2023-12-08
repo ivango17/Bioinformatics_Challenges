@@ -52,9 +52,9 @@ codon_to_aa = {
 # Functions
 ############################################################################################################################################################################################################################################################
 
-def convert_phred(letter: str) -> int:
+def convert_phred(letter: str, val: int = 33) -> int:
     '''Converts a single character into a phred score. Assumes scores are phred+33.'''
-    return ord(letter) - 33
+    return ord(letter) - val
 
 
 def qual_score(phred_score: str) -> float:
@@ -148,7 +148,7 @@ def protein_mass_calculator(seq):
     return protein_mass
 
 
-def DNA_to_aa(seq):
+def dna_to_aa(seq):
     '''This function takes an RNA sequence and translates it to a polypeptide sequence.'''
     seq =  [(seq[i:i + 3]) for i in range(0, len(seq), 3)]
     aa_seq = ""
