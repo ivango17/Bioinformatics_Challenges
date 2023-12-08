@@ -1,0 +1,1 @@
+The hamming distance between the two sequences in datasets/rosalind_hamm.txt is: 505

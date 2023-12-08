@@ -79,8 +79,8 @@ assert round(protein_mass_calculator("HIKLGHIS"), 3) == 885.518
 print("protein_mass_calculator() function is working properly")
 
 # DNA_to_aa
-assert DNA_to_aa("ATG") == "M"
-assert DNA_to_aa("ATTCGAGAAATG") == "IREM"
-assert DNA_to_aa("TGAATTTCG") == "*IS"
-assert DNA_to_aa("GATCTA") == "DL"
-print("DNA_to_aa() function is working properly")
+assert dna_to_aa("ATG") == "M"
+assert dna_to_aa("ATTCGAGAAATG") == "IREM"
+assert dna_to_aa("TGAATTTCG") == "*IS"
+assert dna_to_aa("GATCTA") == "DL"
+print("dna_to_aa() function is working properly")

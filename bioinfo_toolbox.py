@@ -2,7 +2,7 @@
 
 # Author: Ian VanGordon
 # 12/07/2023
-__version__ = "0.1"
+__version__ = "0.2"
 
 '''
 This is a set of common bioinformatic functions.
@@ -91,7 +91,6 @@ def calc_median(sortedlist: list) -> float:
     if len(sortedlist) % 2 != 0:
         medianIndex = len(sortedlist) // 2
         return sortedlist[medianIndex]
-
     else:
         i1 = len(sortedlist) // 2
         i2 = i1 - 1
@@ -101,7 +100,6 @@ def calc_median(sortedlist: list) -> float:
 
 def oneline_fasta(filer: str, filew: str = "oneline.fa"):
     '''Takes a FASTA file with multiple lines of sequence per read and reduces it to one line of sequence per read'''
-
     with(open(filer) as fr, open(filew, "w") as fw):
         seq = ""
         header = ""
@@ -109,15 +107,12 @@ def oneline_fasta(filer: str, filew: str = "oneline.fa"):
             line = line.strip("\n")
             if line[0] == ">" and header == "":
                 header = line
-
             elif line[0] == ">":
                 fw.write(f"{header}\n{seq}\n")
                 seq = ""
                 header = line
-
             else:
                 seq += line
-
         fw.write(f"{header}\n{seq}\n")
 
 
@@ -125,15 +120,12 @@ def rev_compliment(seq):
     '''This function takes a sequence of DNA or RNA and reverse compliments the sequence'''
     seq = seq.upper()[::-1]
     new_seq = ""
-
     if "U" in seq:
         comp = RNA_compliments
     else:
         comp = DNA_compliments
-
     for bp in seq:
         new_seq += comp[bp]
-
     return new_seq
 
 
@@ -141,10 +133,8 @@ def protein_mass_calculator(seq):
     '''This function takes a polypeptide sequence and calculates the mass of the protein.'''
     seq = seq.upper()
     protein_mass = 0
-
     for aa in seq:
         protein_mass += aa_mass[aa]
-
     return protein_mass
 
 
@@ -152,10 +142,9 @@ def dna_to_aa(seq):
     '''This function takes an RNA sequence and translates it to a polypeptide sequence.'''
     seq =  [(seq[i:i + 3]) for i in range(0, len(seq), 3)]
     aa_seq = ""
-
     for codon in seq:
-        aa_seq += codon_to_aa[codon]
-
+        if len(codon) % 3 == 0:
+            aa_seq += codon_to_aa[codon]
     return aa_seq
     
 
