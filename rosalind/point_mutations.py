@@ -11,7 +11,7 @@ This problem is for "Counting Point Mutations" on Rosalind.
 import argparse
 
 def get_args():
-    parser = argparse.ArgumentParser(description="This program generates an output file from a sorted sam file without PCR replicates. This script does not take hard clipping into account.")
+    parser = argparse.ArgumentParser(description="This program calculates the hamming distance between two DNA sequences (number of mismatched bps).")
     parser.add_argument("-f", "--file", help="What is the filepath for the txt file to be read?", type=str)
     parser.add_argument("-o", "--outfile", help="What should this file be called?", type=str)
     return parser.parse_args()

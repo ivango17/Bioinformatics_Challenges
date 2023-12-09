@@ -2,7 +2,7 @@
 
 # Author: Ian VanGordon
 # 12/07/2023
-__version__ = "0.2"
+__version__ = "0.3"
 
 '''
 This is a set of common bioinformatic functions.
@@ -15,7 +15,11 @@ Here are the functions in this program:
 4) gc_content()
 5) calc_median()
 6) oneline_fasta()
+7) permutation_calc()
 '''
+
+from math import factorial
+from random import sample
 
 ############################################################################################################################################################################################################################################################
 # Constants
@@ -47,17 +51,25 @@ codon_to_aa = {
     'GCG': 'A','GCT': 'A','GAC': 'D','GAT': 'D','GAA': 'E','GAG': 'E',
     'GGA': 'G','GGC': 'G','GGG': 'G','GGT': 'G'}
 
+aa_numcodon = {
+    'A': 4,'C': 2,'D': 2,'E': 2,
+    'F': 2,'G': 4,'I': 3,'H': 2,
+    'K': 2,'L': 6,'M': 1,'N': 2,
+    'P': 4,'Q': 2,'R': 6,'S': 6,
+    'T': 4,'V': 4,'W': 1,'Y': 2,
+    '*': 3,}
+
 
 ############################################################################################################################################################################################################################################################
 # Functions
 ############################################################################################################################################################################################################################################################
 
-def convert_phred(letter: str, val: int = 33) -> int:
+def convert_phred(letter: str, val: int = 33):
     '''Converts a single character into a phred score. Assumes scores are phred+33.'''
     return ord(letter) - val
 
 
-def qual_score(phred_score: str) -> float:
+def qual_score(phred_score: str):
     '''Takes a string of qualty scores and returns the average quality score for that string.'''
     total = 0
     for i in range(len(phred_score)):
@@ -66,7 +78,7 @@ def qual_score(phred_score: str) -> float:
     return avg_score
 
 
-def validate_base_seq(seq: str, RNAflag=False) -> bool:
+def validate_base_seq(seq: str, RNAflag=False):
     '''This function takes a string. Returns True if string is composed
     of only As, Ts (or Us if RNAflag), Gs, Cs. False otherwise. Case
     insensitive.'''
@@ -86,7 +98,7 @@ def gc_content(seq: str):
     return GCcontent
 
 
-def calc_median(sortedlist: list) -> float:
+def calc_median(sortedlist: list):
     '''This function finds the median index of a sorted list and returns the value at that index.'''
     if len(sortedlist) % 2 != 0:
         medianIndex = len(sortedlist) // 2
@@ -116,7 +128,7 @@ def oneline_fasta(filer: str, filew: str = "oneline.fa"):
         fw.write(f"{header}\n{seq}\n")
 
 
-def rev_compliment(seq):
+def rev_compliment(seq: str):
     '''This function takes a sequence of DNA or RNA and reverse compliments the sequence'''
     seq = seq.upper()[::-1]
     new_seq = ""
@@ -129,7 +141,7 @@ def rev_compliment(seq):
     return new_seq
 
 
-def protein_mass_calculator(seq):
+def protein_mass_calculator(seq: str):
     '''This function takes a polypeptide sequence and calculates the mass of the protein.'''
     seq = seq.upper()
     protein_mass = 0
@@ -138,7 +150,7 @@ def protein_mass_calculator(seq):
     return protein_mass
 
 
-def dna_to_aa(seq):
+def dna_to_aa(seq: str):
     '''This function takes an RNA sequence and translates it to a polypeptide sequence.'''
     seq =  [(seq[i:i + 3]) for i in range(0, len(seq), 3)]
     aa_seq = ""
@@ -148,5 +160,18 @@ def dna_to_aa(seq):
     return aa_seq
     
 
+def permutation_calc(n: int, r: int, perm_out: bool = True):
+    '''This function returns the number of permutations given n and r. Outputs and optional list of all possible permutations.'''
+    num_permutations = int(factorial(n) / factorial(n-r))
+    if perm_out:
+        perm_list = []
+        cur_list = []
+        population = [(i + 1) for i in range(n)]
+        while len(perm_list) != num_permutations:
+            cur_list = sample(population, k = r)
+            if cur_list not in perm_list:
+                perm_list.append(cur_list)
+        return num_permutations, perm_list
 
-
+    else:
+        return num_permutations

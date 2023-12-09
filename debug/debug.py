@@ -84,3 +84,10 @@ assert dna_to_aa("ATTCGAGAAATG") == "IREM"
 assert dna_to_aa("TGAATTTCG") == "*IS"
 assert dna_to_aa("GATCTA") == "DL"
 print("dna_to_aa() function is working properly")
+
+# permutation_calc()
+assert permutation_calc(3, 3, False) == 6
+assert permutation_calc(6, 6, False) == 720
+assert permutation_calc(5, 3, False) == 60
+assert permutation_calc(10, 5, False) == 30240
+print("permutation_calc() function is working properly")
