@@ -16,6 +16,7 @@ Here are the functions in this program:
 5) calc_median()
 6) oneline_fasta()
 7) permutation_calc()
+8) transition_transversion()
 '''
 
 from math import factorial
@@ -58,6 +59,9 @@ aa_numcodon = {
     'P': 4,'Q': 2,'R': 6,'S': 6,
     'T': 4,'V': 4,'W': 1,'Y': 2,
     '*': 3,}
+
+transversions = {
+    'A' : set("CT"), 'G' : set("CT"), 'T' : set("AG"), 'C' : set("AG")}
 
 
 ############################################################################################################################################################################################################################################################
@@ -175,3 +179,18 @@ def permutation_calc(n: int, r: int, perm_out: bool = True):
 
     else:
         return num_permutations
+
+
+def transition_transverion(seq1, seq2):
+    '''This function takes two DNA sequences and returns the transition to transversion ratio.'''
+    transitions_count = 0
+    transversions_count = 0
+
+    for i in range(len(seq1)):
+        if seq1[i] != seq2[i]:
+            if seq2[i] in transversions[seq1[i]]:
+                transversions_count += 1
+            else:
+                transitions_count += 1
+
+    return transitions_count / transversions_count

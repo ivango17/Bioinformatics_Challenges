@@ -12,13 +12,13 @@ import argparse
 import re
 
 def get_args():
-    parser = argparse.ArgumentParser(description="This program outputs all possible protein strings starting with methionine and ending with a stop codon.")
+    parser = argparse.ArgumentParser(description="This program takes a FASTA file of DNA sequences and returns the longest motif or motifs that are shared between all of the reads.")
     parser.add_argument("-f", "--file", help="What is the filepath for the txt file to be read?", type=str)
     return parser.parse_args()
 
 
 def find_motif(seq1, seq2, max_len):
-    ''' '''
+    '''This function compares two sequences and returns the longest motif(s).'''
     print(len(seq1), " ", len(seq2))
     if len(seq1) != len(seq2):
         lg_seq = max(seq1, seq2)

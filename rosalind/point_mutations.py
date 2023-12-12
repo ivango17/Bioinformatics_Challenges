@@ -28,17 +28,20 @@ def read_seq(file):
             seqs.append(line.strip())
     return seqs
 
-seqs = read_seq(input_file)
 
-seq1 = seqs[0]
-seq2 = seqs[1]
-ham_dist = 0
+if __name__ =="__main__":
 
-for i in range(len(seq1)):
-    if seq1[i] != seq2[i]:
-        ham_dist += 1
-    else:
-        continue
+    seqs = read_seq(input_file)
 
-with open(output_file, "w") as fh:
-    fh.write(f"The hamming distance between the two sequences in {input_file} is: {ham_dist}")
+    seq1 = seqs[0]
+    seq2 = seqs[1]
+    ham_dist = 0
+
+    for i in range(len(seq1)):
+        if seq1[i] != seq2[i]:
+            ham_dist += 1
+        else:
+            continue
+
+    with open(output_file, "w") as fh:
+        fh.write(f"The hamming distance between the two sequences in {input_file} is: {ham_dist}")
