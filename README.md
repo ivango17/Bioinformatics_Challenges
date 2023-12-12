@@ -32,6 +32,8 @@ Here is code to solve some of Rosalind's challenges found in the [rosalind folde
 | [shared_motif.py](./rosalind/shared_motif.py) | Finds the longest shared motif in a DNA FASTA file | [Finding a Shared Motif](https://rosalind.info/problems/lcsm/) |
 | [rna_splicing.py](./rosalind/rna_splicing.py) | Takes a DNA sequence with intron sequences and splices, returns resulting protein string | [RNA Splicing](https://rosalind.info/problems/splc/) |
 | [transition_transversion.py](./rosalind/transition_transversion.py) | Takes a FASTA file with two sequences and returns the transition to transversion ration between the two | [Transitions and Transversions](https://rosalind.info/problems/tran/) |
+| [overlap_graphs.py](./rosalind/overap_graphs.py) | Takes a FASTA file and compares all sequences to find overlapping suffixes and prefixes | [Overlap Graphs](https://rosalind.info/problems/grph/) |
+| [fibonacci_recurrence.py](./rosalind/fibonacci_recurrence.py) | Given n (generations) and k (offspring per generation) returns number of breeding pairs after n time | [Rabbits and Recurrence Relations](https://rosalind.info/problems/fib/) |
 
 ## To Do
 - [x] Finish bioinfo_toolbox.py
@@ -43,5 +45,7 @@ Here is code to solve some of Rosalind's challenges found in the [rosalind folde
     - [x] Finding a Shared Motif
     - [x] RNA Splicing
     - [x] Transitions and Transversions
+    - [x] Overlap Graphs
+    - [x] Rabbits and Reccurence Relations
     - [ ] Longest Permutation
 - [ ] Add to README.md

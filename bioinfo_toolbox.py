@@ -194,3 +194,17 @@ def transition_transverion(seq1, seq2):
                 transitions_count += 1
 
     return transitions_count / transversions_count
+
+
+def fibonacci_seq(n, k, count=1, f1=0, f2=1):
+    '''The following function returns a fibonacci number given n and k(mult per instance).'''
+    if count == n:
+        return f2
+    else:
+        temp = f2
+        f2 += f1 * k
+        f1 = temp
+        return fibonacci_seq(n, k, count + 1, f1, f2)
+
+print(fibonacci_seq(5, 3))
+
