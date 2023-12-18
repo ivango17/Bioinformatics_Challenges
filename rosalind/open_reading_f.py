@@ -16,7 +16,7 @@ from bioinfo_toolbox import dna_to_aa, rev_compliment
 def get_args():
     parser = argparse.ArgumentParser(description="This program outputs all possible protein strings starting with methionine and ending with a stop codon.")
     parser.add_argument("-f", "--file", help="What is the filepath for the txt file to be read?", type=str)
-    parser.add_argument("-o", "--outfile", help="What should this file be called?", type=str)
+    parser.add_argument("-o", "--outfile", help="What should the output file be called?", type=str)
     return parser.parse_args()
 
 

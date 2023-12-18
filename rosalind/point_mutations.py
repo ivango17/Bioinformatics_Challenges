@@ -13,7 +13,7 @@ import argparse
 def get_args():
     parser = argparse.ArgumentParser(description="This program calculates the hamming distance between two DNA sequences (number of mismatched bps).")
     parser.add_argument("-f", "--file", help="What is the filepath for the txt file to be read?", type=str)
-    parser.add_argument("-o", "--outfile", help="What should this file be called?", type=str)
+    parser.add_argument("-o", "--outfile", help="What should the output file be called?", type=str)
     return parser.parse_args()
 
 args = get_args()

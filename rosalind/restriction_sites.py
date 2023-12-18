@@ -14,9 +14,9 @@ sys.path.append("..")
 from bioinfo_toolbox import DNA_compliments
 
 def get_args():
-    parser = argparse.ArgumentParser(description="This program locates reverse palindromes in a DNA sequence.")
+    parser = argparse.ArgumentParser(description="This program locates reverse palindromes in a DNA sequence and returns their left most position in the sequence and length.")
     parser.add_argument("-f", "--file", help="What is the filepath for the txt file to be read?", type=str)
-    parser.add_argument("-o", "--outfile", help="What should this file be called?", type=str)
+    parser.add_argument("-o", "--outfile", help="What should the output file be called?", type=str)
     return parser.parse_args()
 
 

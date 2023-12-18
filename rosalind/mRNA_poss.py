@@ -14,7 +14,7 @@ sys.path.append("..")
 from bioinfo_toolbox import aa_numcodon
 
 def get_args():
-    parser = argparse.ArgumentParser(description="This program calculates the number of possible mRNA sequences that a protein sequence could have been derived from.")
+    parser = argparse.ArgumentParser(description="This program calculates the number of possible mRNA sequences that a protein sequence could have been derived from mod 1,000,000.")
     parser.add_argument("-f", "--file", help="What is the filepath for the txt file to be read?", type=str)
     return parser.parse_args()
 
