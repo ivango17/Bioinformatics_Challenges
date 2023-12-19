@@ -91,3 +91,10 @@ assert permutation_calc(6, 6, False) == 720
 assert permutation_calc(5, 3, False) == 60
 assert permutation_calc(10, 5, False) == 30240
 print("permutation_calc() function is working properly")
+
+# kmerize()
+assert kmerize("AAATTTGGGCCC", 5) == ['AAATT', 'AATTT', 'ATTTG', 'TTTGG', 'TTGGG', 'TGGGC', 'GGGCC', 'GGCCC']
+assert kmerize("AAATTTGGGCCC", 3) == ['AAA', 'AAT', 'ATT', 'TTT', 'TTG', 'TGG', 'GGG', 'GGC', 'GCC', 'CCC']
+assert kmerize("AGTAGATCCAGTATCGGG", 4) == ['AGTA', 'GTAG', 'TAGA', 'AGAT', 'GATC', 'ATCC', 'TCCA', 'CCAG', 'CAGT', 'AGTA', 'GTAT', 'TATC', 'ATCG', 'TCGG', 'CGGG']
+assert kmerize("AGTAGATCCAGTATCGGG", 10) == ['AGTAGATCCA', 'GTAGATCCAG', 'TAGATCCAGT', 'AGATCCAGTA', 'GATCCAGTAT', 'ATCCAGTATC', 'TCCAGTATCG', 'CCAGTATCGG', 'CAGTATCGGG']
+print("kmerize() function is working properly")

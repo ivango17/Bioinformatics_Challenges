@@ -17,6 +17,7 @@ Here are the functions in this program:
 6) oneline_fasta()
 7) permutation_calc()
 8) transition_transversion()
+9) kmerize()
 '''
 
 from math import factorial
@@ -196,5 +197,9 @@ def transition_transverion(seq1, seq2):
     return transitions_count / transversions_count
 
 
+def kmerize(seq, k):
+    '''This function takes a sequence and kmerizes it by k.'''
+    kmer_list = [seq[i:(i + k)] for i in range(0, len(seq) - k + 1)]
+    return kmer_list
 
 

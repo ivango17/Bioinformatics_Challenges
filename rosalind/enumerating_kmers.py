@@ -13,7 +13,7 @@ import argparse
 def get_args():
     parser = argparse.ArgumentParser(description="This program takes a string of space separated characters and returns every combination of r length of those characters in lexicographic order.")
     parser.add_argument("-s", "--string", help="What is the space separated string of letters?", type=str)
-    parser.add_argument("-r", "--length", help="What how many characters belong in each combination?", type=str)
+    parser.add_argument("-r", "--length", help="How many characters belong in each combination?", type=str)
     return parser.parse_args()
 
 def combinations(letters, r, new_list = []):
