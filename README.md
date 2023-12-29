@@ -6,6 +6,9 @@ Many of the functions and scripts here are inspired by challenges on [Rosalind](
 ## [bioinfo_toolbox.py](bioinfo_toolbox.py)
 This script contains important functions pertaining to bioinformatics. This module is stand alone and can be useful for elementary bioinformatic processes.
 
+
+Many of the lower level Rosalind challenges can be solved using this simple module.
+
 The table below shows the available functions with descriptions:
 | Function | Description | Arguments |
 | -------- | ----------- | --------- |
@@ -25,6 +28,7 @@ The table below shows the available functions with descriptions:
 ## Rosalind Challenges
 [Rosalind](https://rosalind.info/problems/locations/) contains a large set of bioinformatic challenges that are free to attempt and learn from.
 
+
 Here is code to solve some of Rosalind's challenges found in the [rosalind folder](./rosalind/).
 | Script | Description | Problem Title |
 | -------- | ----------- | --------- |
@@ -39,6 +43,7 @@ Here is code to solve some of Rosalind's challenges found in the [rosalind folde
 | [fibonacci_recurrence.py](./rosalind/fibonacci_recurrence.py) | Given n (generations) and k (offspring per generation) returns number of breeding pairs after n time | [Rabbits and Recurrence Relations](https://rosalind.info/problems/fib/) |
 | [enumerating_kmers.py](./rosalind/enumerating_kmers.py) | From a string of letters, returns all combinations of length r and sorts lexicographically | [Enumerating k-mers Lexicographically](https://rosalind.info/problems/lexf/) |
 | [kmer_composition.py](./rosalind/kmer_composition.py) | Takes a single sequence in FASTA format and returns the 4-mer composition of the sequence in lexicographic order | [k-Mer Composition](https://rosalind.info/problems/kmer/) |
+| [consensus_seq.py](./rosalind/consensus_seq.py) | Takes a FASTA file of sequences of all the same length and returns the consensus sequence and nucleotide make up per position | [Consensus and Profile](https://rosalind.info/problems/cons/) |
 
 
 
@@ -92,7 +97,7 @@ python <script.py> -h
 
 ## To Do
 - [x] Finish bioinfo_toolbox.py
-- [ ] Add more Rosalind code
+- [x] Add more Rosalind code
     - [x] Counting Point Mutation
     - [x] Open Reading Frames 
     - [x] Locating Restriction Sites
@@ -104,5 +109,5 @@ python <script.py> -h
     - [x] Rabbits and Reccurence Relations
     - [x] Enumerating k-mers Lexicographically
     - [x] k-Mer Composition
-    - [ ] Longest Permutation
-- [ ] Add to README.md
+    - [x] Consensus and Profile
+- [x] Add to README.md
